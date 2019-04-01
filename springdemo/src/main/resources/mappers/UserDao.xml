@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.test.springdemo.dao.UserDao">
+
+    <select id="queryUserInfo1" resultType="com.spring.test.springdemo.pojo.UserVo">
+     SELECT userID AS userId,userName as userName,name as name ,password as password FROM USER
+    </select>
+
+    <select id="queryUserInfo" parameterType="String" resultType="com.spring.test.springdemo.pojo.UserVo">
+           SELECT *   FROM USER as t WHERE t.password =#{password}
+    </select>
+</mapper>
