@@ -14,4 +14,15 @@
     <select id="queryUserInfo" parameterType="String" resultType="com.spring.test.springdemo.pojo.UserVo">
            SELECT *   FROM USER as t WHERE t.password =#{password}
     </select>
+
+    <update id="addUser" parameterType="com.spring.test.springdemo.pojo.UserVo">
+        insert into USER(userid,name,username,password)
+        values(
+           #{userId},
+           #{name},
+           #{userName},
+           #{password}
+        )
+
+    </update>
 </mapper>

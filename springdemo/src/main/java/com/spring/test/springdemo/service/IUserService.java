@@ -6,12 +6,11 @@ import java.util.List;
 
 public interface IUserService {
 
-    public UserVo queryUserInfo(String password);
-    public List<UserVo> queryUserInfo1();
+    UserVo queryUserInfo(String password);
 
-    public boolean addUser(UserVo user);
+    List<UserVo> queryUserInfo1();
 
-
+    boolean addUser(UserVo user);
 
 
 }

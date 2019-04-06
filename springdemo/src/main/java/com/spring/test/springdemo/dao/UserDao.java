@@ -10,9 +10,9 @@ import java.util.List;
 @Mapper
 @Component
 public interface UserDao {
+    UserVo queryUserInfo(@Param("password") String password);
 
-        public UserVo queryUserInfo(@Param("password") String  password);
-        public List<UserVo> queryUserInfo1();
+    List<UserVo> queryUserInfo1();
 
-        public boolean add(UserVo user);
+    boolean addUser(UserVo user);
 }

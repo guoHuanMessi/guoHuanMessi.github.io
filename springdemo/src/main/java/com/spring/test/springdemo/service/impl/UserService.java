@@ -9,10 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+//@Transactional(propagation = Propagation.NOT_SUPPORTED,rollbackFor = Exception.class)
 public class UserService implements IUserService {
 
-   @Autowired
-   private UserDao userdao;
+    @Autowired
+    private UserDao userdao;
 
     @Override
     public UserVo queryUserInfo(String password) {
@@ -26,6 +27,6 @@ public class UserService implements IUserService {
 
     @Override
     public boolean addUser(UserVo user) {
-        return userdao.add(user);
+        return userdao.addUser(user);
     }
 }

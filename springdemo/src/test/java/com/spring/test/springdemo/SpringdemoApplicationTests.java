@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -19,6 +20,10 @@ public class SpringdemoApplicationTests {
 
     @Autowired
     UserDao userdao1;
+
+    @Autowired
+    RedisTemplate redisTemplate;
+
     @Test
     public void contextLoads() {
     }
@@ -34,4 +39,22 @@ public class SpringdemoApplicationTests {
         System.out.println(vo2);
 
     }
+    @Test
+    public void test02(){
+        UserVo vo = new UserVo(4,"小苏","susu","132");
+        boolean isOk =userDao.addUser(vo);
+        System.out.println(isOk);
+    }
+
+    @Test
+    public void testRedisAdd(){
+        redisTemplate.opsForValue().set("name","zhuhuan");
+    }
+
+    @Test
+    public void testRedisQuery(){
+        Object name = redisTemplate.opsForValue().get("name");
+        System.out.println("redis的值："+name);
+    }
+
 }

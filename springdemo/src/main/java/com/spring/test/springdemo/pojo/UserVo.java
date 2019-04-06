@@ -48,4 +48,14 @@ public class UserVo {
                 ", password='" + password + '\'' +
                 '}';
     }
+
+    public UserVo(Integer userId, String userName, String name, String password) {
+        this.userId = userId;
+        this.userName = userName;
+        this.name = name;
+        this.password = password;
+    }
+
+    public UserVo() {
+    }
 }
