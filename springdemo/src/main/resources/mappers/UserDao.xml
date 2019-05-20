@@ -8,20 +8,20 @@
 <mapper namespace="com.spring.test.springdemo.dao.UserDao">
 
     <select id="queryUserInfo1" resultType="com.spring.test.springdemo.pojo.UserVo">
-     SELECT userID AS userId,userName as userName,name as name ,password as password FROM USER
+        SELECT userID AS userId,userName as userName,name as name ,password as password FROM USER
     </select>
 
     <select id="queryUserInfo" parameterType="String" resultType="com.spring.test.springdemo.pojo.UserVo">
-           SELECT *   FROM USER as t WHERE t.password =#{password}
+        SELECT * FROM USER as t WHERE t.password =#{password}
     </select>
 
     <update id="addUser" parameterType="com.spring.test.springdemo.pojo.UserVo">
         insert into USER(userid,name,username,password)
         values(
-           #{userId},
-           #{name},
-           #{userName},
-           #{password}
+        #{userId},
+        #{name},
+        #{userName},
+        #{password}
         )
 
     </update>
