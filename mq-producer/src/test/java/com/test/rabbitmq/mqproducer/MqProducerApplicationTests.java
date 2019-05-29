@@ -1,6 +1,7 @@
 package com.test.rabbitmq.mqproducer;
 
 import com.test.rabbitmq.mqproducer.mq.DirectProducer;
+import com.test.rabbitmq.mqproducer.mq.Sender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ public class MqProducerApplicationTests {
 
     @Autowired
     DirectProducer directProducer;
+
+    @Autowired
+    Sender sender;
 
     @Test
     public void testProduceMsg() throws InterruptedException {
@@ -33,6 +37,14 @@ public class MqProducerApplicationTests {
         for (int i = 0; i < 100; i++) {
             directProducer.produceMsg_01();
             directProducer.produceMsg_02();
+        }
+    }
+
+
+    @Test
+    public void directProducer() {
+        for(int i=0;i<10;i++) {
+            sender.send("zhuan i hate you,but you dont know");
         }
     }
 
